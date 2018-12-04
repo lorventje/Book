@@ -8,4 +8,5 @@ public interface IBookDao {
     void create(Book book);
     List<Book> getAllBooks();
     List<Book> findBooksByTitle(String title);
+    Book findBookById(Integer id);
 }

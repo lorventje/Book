@@ -1,4 +1,4 @@
-package domain;
+package Files;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,7 +30,7 @@ public class WritingFileToDatabase {
 
             int row = statement.executeUpdate();
             if (row > 0) {
-                System.out.println("A contact was inserted with photo image.");
+                System.out.println("Successful added file");
             }
             conn.close();
         } catch (SQLException ex) {

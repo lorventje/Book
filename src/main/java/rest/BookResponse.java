@@ -21,4 +21,12 @@ public class BookResponse {
         System.out.println("[Server response] " + output);
         return output;
     }
+
+    public static String getSingleBook(Book book){
+        RestResponse restResponse = new RestResponse();
+        restResponse.setBook(book);
+        String output = gson.toJson(restResponse);
+        System.out.println("[Server response] " + output);
+        return output;
+    }
 }

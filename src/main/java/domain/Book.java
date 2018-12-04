@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "Book.findBookById", query = "select b from Book as b where b.book_id = :bookId"),
         @NamedQuery(name = "Book.findBooksByTitle", query = "select b from Book as b where b.title like CONCAT('%', :title, '%')")
 })
 public class Book implements Serializable {

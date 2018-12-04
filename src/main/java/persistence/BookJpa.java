@@ -32,4 +32,10 @@ public class BookJpa implements IBookDao {
         q.setParameter("title", title);
         return (List<Book>) q.getResultList();
     }
+
+    public Book findBookById(Integer id) {
+        Query q = em.createNamedQuery("Book.findBookById", Book.class);
+        q.setParameter("bookId", id);
+        return (Book) q.getSingleResult();
+    }
 }

@@ -6,7 +6,6 @@
         <class>domain.Attachment</class>
         <class>domain.Author</class>
         <class>domain.Book</class>
-        <class>domain.Library</class>
         <class>domain.Publisher</class>
         <class>domain.Review</class>
         <class>domain.Reviewer</class>

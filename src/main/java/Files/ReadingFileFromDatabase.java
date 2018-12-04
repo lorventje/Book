@@ -1,4 +1,4 @@
-package domain;
+package Files;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

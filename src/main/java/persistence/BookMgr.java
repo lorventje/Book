@@ -34,7 +34,6 @@ public class BookMgr {
         }
         return true;
     }
-
     public List<Book> getAllBooks(){
         EntityManager em = emf.createEntityManager();
         IBookDao iBookDao = new BookJpa(em);
@@ -51,7 +50,6 @@ public class BookMgr {
         }
         return books;
     }
-
     public List<Book> findBooksByTitle(String title){
         EntityManager em = emf.createEntityManager();
         IBookDao iBookDao = new BookJpa(em);
@@ -67,5 +65,21 @@ public class BookMgr {
             em.close();
         }
         return books;
+    }
+    public Book getBook(Integer id){
+        EntityManager em = emf.createEntityManager();
+        IBookDao iBookDao = new BookJpa(em);
+        Book book = null;
+        em.getTransaction().begin();
+        try {
+            book = iBookDao.findBookById(id);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+        return book;
     }
 }
