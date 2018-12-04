@@ -53,4 +53,17 @@ public class BookService {
         }
         return Response.status(200).entity(BookResponse.getAllBooks(books)).build();
     }
+
+    @GET
+    @Path("/bookByTitle/{title}")
+    @Produces("application/json")
+    public Response getBookByTitle(@PathParam("title") String title){
+        BookMgr bookMgr = new BookMgr();
+        List<Book> books = null;
+        books = bookMgr.findBooksByTitle(title);
+        if (books == null){
+            return Response.status(400).entity(RestResponseHelper.getErrorResponseString()).build();
+        }
+        return Response.status(200).entity(BookResponse.getAllBooks(books)).build();
+    }
 }

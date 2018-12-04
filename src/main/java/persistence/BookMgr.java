@@ -51,4 +51,21 @@ public class BookMgr {
         }
         return books;
     }
+
+    public List<Book> findBooksByTitle(String title){
+        EntityManager em = emf.createEntityManager();
+        IBookDao iBookDao = new BookJpa(em);
+        List<Book> books = null;
+        em.getTransaction().begin();
+        try {
+            books = iBookDao.findBooksByTitle(title);
+            em.getTransaction().commit();
+        } catch (Exception e){
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        } finally {
+            em.close();
+        }
+        return books;
+    }
 }

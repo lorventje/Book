@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Book.findBooksByTitle", query = "select b from Book as b where b.title like CONCAT('%', :title, '%')")
+})
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

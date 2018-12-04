@@ -4,6 +4,7 @@ import IDaos.IBookDao;
 import domain.Book;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 
@@ -23,5 +24,12 @@ public class BookJpa implements IBookDao {
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
         cq.select(cq.from(Book.class));
         return em.createQuery(cq).getResultList();
+    }
+
+    @Override
+    public List<Book> findBooksByTitle(String title){
+        Query q = em.createNamedQuery("Book.findBooksByTitle", Book.class);
+        q.setParameter("title", title);
+        return (List<Book>) q.getResultList();
     }
 }
