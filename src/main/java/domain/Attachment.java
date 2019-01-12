@@ -14,5 +14,5 @@ public class Attachment implements Serializable {
     private String type;
 
     @OneToOne(mappedBy = "attachment")
-    private Book book;
+    private transient Book book;
 }

@@ -13,5 +13,5 @@ public class Publisher implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "publisher")
-    private List<Book> books;
+    private transient List<Book> books;
 }

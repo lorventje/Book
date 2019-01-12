@@ -16,5 +16,5 @@ public class Author implements Serializable {
     private Date dateOfBirth;
 
     @OneToMany(mappedBy = "author")
-    private List<Book> books;
+    private transient List<Book> books;
 }

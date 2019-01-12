@@ -13,6 +13,30 @@ public class Reviewer implements Serializable {
     private String name;
     private String email;
 
-    @OneToMany(mappedBy = "reviewer")
-    private List<Review> reviews;
+    @OneToMany(mappedBy = "reviewer", cascade = CascadeType.PERSIST)
+    private transient List<Review> reviews;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

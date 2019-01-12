@@ -19,7 +19,7 @@ public class Book implements Serializable {
     private String ISBN;
 
     @OneToMany(mappedBy = "book")
-    private List<Review> reviews;
+    private transient List<Review> reviews;
 
     @ManyToOne
     private Author author;
