@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('idk') {
+    stage('Build assets') {
       steps {
-        echo 'hoi'
+        sh 'npm install'
       }
     }
   }
