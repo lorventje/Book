@@ -51,9 +51,9 @@ public class TestingSelenium {
         requestBookDetails();
         TimeUnit.SECONDS.sleep(3);
         obj.findElement(By.name("download")).click();
-        Alert alert = obj.switchTo().alert();
-        System.out.println(alert.getText()); //Print Alert popup
-        alert.accept(); //Close Alert popup
+        //Alert alert = obj.switchTo().alert();
+        //System.out.println(alert.getText()); //Print Alert popup
+        //alert.accept(); //Close Alert popup
     }
 
 
