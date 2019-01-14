@@ -1,12 +1,13 @@
 pipeline {
   agent {
     docker {
-      image 'jenkinsci/blueocean '
+      image 'node:6-alpine'
+      args '-p 3000:3000'
     }
 
   }
   stages {
-    stage('Build assets') {
+    stage('Build') {
       steps {
         sh 'npm install'
       }
